@@ -13,7 +13,7 @@ body,html,h1{
 }
 
 .container{
-    background: url('/img/bg.png') no-repeat  fixed; 
+  
     background-position: bottom 0px right -712px;
     background-size: cover;
     display:flex;
