@@ -1,0 +1,308 @@
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
+@import url(//fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+body,html,h1{
+    margin:0;
+    padding:0;
+}
+
+.container{
+    background: url('/img/bg.png') no-repeat  fixed; 
+    background-position: bottom 0px right -712px;
+    background-size: cover;
+    display:flex;
+    position: relative;
+    justify-content: center;
+    font-family: 'Open Sans Hebrew Condensed', serif;
+    text-align: center;
+}
+
+.container:before{
+    content: '';
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:rgba(21,59,81,0.5);
+}
+
+h1{
+    font-size: 40px;
+    margin-top:115px;
+    margin-bottom:15px;
+    filter: drop-shadow(0 0 1.5px #020303);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+header{
+    width:90%;
+    max-width: 400px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align:center;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+    padding:0 5px;
+    padding-bottom:6px;
+    border-radius: 3px;
+    filter: drop-shadow(0 0 5px #000000);
+    background: rgb(255,255,255);
+    background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 57%, rgba(255,255,255,0.559558823529411) 100%);
+}
+
+form div:nth-child(4) input  {
+    border:none;
+ }
+
+.floating-input{
+    position: relative;
+}
+
+.floating-input>input::placeholder {
+    color: transparent;
+}
+
+.floating-input>input:focus,
+.floating-input>input:not(:placeholder-shown) { 
+padding-top:6px;
+}
+
+.floating-input>input:focus~label, 
+.floating-input>input:not(:placeholder-shown)~label {
+  transform: scale(0.7,0.7)  translateY(-30px);
+}
+
+input{
+    background: transparent;
+    border:none;
+    border-bottom:1px solid #E4E4E4;
+    width:100%;
+    height:71px;
+    padding-right:65px;
+    font-size:20px;
+}
+
+input[type="text"]
+{
+    font-family: "Open Sans Hebrew";
+    font-size:16px;
+}
+
+*:focus {
+border-bottom:1px solid #E4E4E4;
+outline:none;
+box-shadow:none;
+}
+
+label{
+    position:absolute;
+    top:23px;
+    right:65px;
+    pointer-events: none;
+    transform-origin: right;
+    color:#999999;
+    transition: all 0.1s ease-in-out;
+    font-family: "Open Sans Hebrew";
+    font-size: 20px;
+}
+
+.icon{
+    position:absolute;
+    top:23px;
+    right:12px;
+    width: 30px;
+    height: 30px;
+}
+
+button{
+    font-size: 30px;
+    font-weight: 300;
+    color: #ffffff;
+    font-family: "Open Sans Hebrew";
+    border-radius: 3px;
+    height: 80px;
+    border: 1px solid #ffffff;
+    background:#ff0d41;
+    background-image: linear-gradient(-90deg, rgba(249,64,56,0) 0%, #ff304a 100%);
+    cursor: pointer;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button span{
+    margin-left:10px;
+}
+
+section{
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top:72px;
+    margin-bottom:15px;
+    filter: drop-shadow(0 0 1.5px #020303);
+    display:flex;
+    justify-content: space-between;
+}
+
+
+section div{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section img{
+    width: 36px;
+    height: 36px;
+}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    color:black;
+    width:100%;
+    height:100%;
+    background:white;
+    display:none;
+}
+
+.show{
+    display:block;
+}
+
+.search{
+    text-align: right;
+    padding-right:65px;
+    padding-top:15px;
+}
+
+.search_item{
+    display:flex;
+    align-items: center;
+    margin-bottom:5px;
+}
+
+.search_item img{
+    margin-left:5px;
+    height:15px;
+    width:15px;
+}
+
+.exit{
+    position:absolute;
+    top:25px;
+    left:50px;
+    cursor: pointer;
+    z-index:50;
+}
+
+@media only screen and (min-width: 749px) {
+
+    .container{
+        background-position: center center;
+    }
+
+}
+@media only screen and (min-width: 1100px) {
+
+    header{
+        width: 90%;
+        max-width: 1050px;
+        position:relative;
+    }
+
+    h1{
+        margin-top:85px;
+        margin-bottom:60px;
+        font-size: 66px;
+        color: #ffffff;
+        font-weight: bold;
+        font-family: "Open Sans Hebrew Condensed";
+    }
+
+    form{
+        background: white;
+        flex-direction: row;
+        padding:0;
+    }
+
+    label,.icon{
+        top:27px;
+    }
+
+    input{
+        border: none;
+        height:80px;
+    }
+
+    button{
+        width: 80px;
+        height: 80px;
+    }
+
+    button span{
+        display:none;
+    }
+
+    button img{
+        width: 40px;
+        height: 40px;
+    }
+    section{
+        font-size: 20px;
+        margin-right:auto;
+        margin-left:auto;
+        max-width:675px;
+        width:675px;
+    }
+
+    section div{
+        flex-direction: row;
+    }
+
+    section img{
+        margin-left:10px;
+    }
+
+    .sidebar{
+        filter: drop-shadow(0 0 5px #000000);
+        background: rgb(255,255,255);
+        position:absolute;
+        top:319px;
+        right:0;
+        color:black;
+        width:250px;
+        height:auto;
+        display:none;
+    }
+
+    .search{
+        padding:15px;
+    }
+
+    #search_input{
+        display:none;
+    }
+    
+    .exit{
+        display: none;
+    }
+    .show{
+        display:block;
+    }
+  }
