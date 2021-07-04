@@ -6,68 +6,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/index.js"></script>
+
     <title>Document</title>
 </head>
 
 <body>
     <div class="container">
-    
-        <header>
-            <h1>להקליק . להזמין . לנפוש</h1>
-            <form>
-                <div class="floating-input">
-                    <input type="text" id="location" placeholder=" " autocomplete="off" readonly="false"/>
-                    <img class="icon" src="svg/location.svg" />
-                    <label id="locationLabel" for="location"></label>
-                </div>
+        <div class="overlay">
 
-                <div class="floating-input">
-                    <input type="text" id="date" placeholder=" " autocomplete="off" />
-                    <img class="icon" src="svg/date.svg" />
-                    <label for="date">תאריך מבוקש</label>
-                </div>
-                <div class="floating-input">
-                    <input type="text" id="quantity" placeholder=" " autocomplete="off" />
-                    <img class="icon" src="svg/quantity.svg" />
-                    <label for="quantity">כמות נופשים וחדרים</label>
-                </div>
-                <div class="floating-input">
-                    <input type="text" id="options" placeholder=" " autocomplete="off" />
-                    <img class="icon" src="svg/options.svg" />
-                    <label for="options">אפשרויות נוספות</label>
-                </div>
-                <button type="submit">
-                    <span>חיפוש</span>
-                    <img src="svg/search.svg" />
-                </button>
-            </form>
 
-            <section>
-                <div>
-                    <img src="svg/vicon.svg" />
-                    <span>כל המתחמים נבדקו</span>
-                </div>
-                <div>
-                    <img src="svg/vicon.svg" />
-                    <span>חוות דעת אמיתיות</span>
-                </div>
-                <div>
-                    <img src="svg/vicon.svg" />
-                    <span>המחירים הכי טובים</span>
-                </div>
-            </section>
-            <div class="sidebar" id="sidebar">
-                <img class="exit" id="exit" src="svg/exit.svg" />
-                <div class="floating-input" id="search_input">
-                    <input type="text" id="locationSearch" placeholder=" " autocomplete="off" />
-                    <label for="locationSearch">מיקום, או מתחם</label>
+
+            <header>
+                <h1>להקליק . להזמין . לנפוש</h1>
+                <form id="myForm">
+
+                    <div class="floating-input first">
+                        <div class="search_bar">
+                            <input type="text" id="location" placeholder=" " autocomplete="off" />
+                            <img class="icon" src="svg/location.svg" />
+                            <label id="locationLabel" for="location">sss</label>
+                            <img class="exit" id="exit" src="svg/exit.svg" />
+                            <div class="search" id="search">
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-input second">
+                        <input type="text" id="date" placeholder=" " autocomplete="off" />
+                        <img class="icon" src="svg/date.svg" />
+                        <label for="date">תאריך מבוקש</label>
+                    </div>
+                    <div class="floating-input third">
+                        <input type="text" id="quantity" placeholder=" " autocomplete="off" />
+                        <img class="icon" src="svg/quantity.svg" />
+                        <label for="quantity">כמות נופשים וחדרים</label>
+                    </div>
+                    <div class="floating-input four">
+                        <input type="text" id="options" placeholder=" " autocomplete="off" />
+                        <img class="icon" src="svg/options.svg" />
+                        <label for="options">אפשרויות נוספות</label>
+                    </div>
+                    <button type="submit">
+                        <span>חיפוש</span>
+                        <img src="svg/search.svg" />
+                    </button>
+                </form>
+
+                <section>
+                    <div>
+                        <img src="svg/vicon.svg" />
+                        <span>כל המתחמים נבדקו</span>
+                    </div>
+                    <div>
+                        <img src="svg/vicon.svg" />
+                        <span>חוות דעת אמיתיות</span>
+                    </div>
+                    <div>
+                        <img src="svg/vicon.svg" />
+                        <span>המחירים הכי טובים</span>
+                    </div>
+                </section>
+                <div class="sidebar" id="sidebar">
+                    <img class="exit" id="exit" src="svg/exit.svg" />
+                    <div class="floating-input" id="search_input">
+                        <input type="text" id="locationSearch" placeholder=" " autocomplete="off" />
+                        <label for="locationSearch">מיקום, או מתחם</label>
                     </div>
                     <div class="search" id="search">
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
+        </div>
     </div>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
