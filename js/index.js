@@ -1,50 +1,54 @@
-const cities = [
-    'חיפה',
-    'תל אביב',
-    'ירושלים',
-    'אילת',
-    'טבריה',
-    'נתניה',
-    'עפולה'
-]
-const checkWidth = (locationLabel, input) => {
-    if (document.documentElement.clientWidth < 1100) {
-        input.setAttribute("readonly", "true");
-        locationLabel.innerHTML = 'הקלידו מיקום, או שם וילה';
-        input.value = '';
-    }
-    else {
-        locationLabel.innerHTML = 'מיקום, או מתחם';
-        input.removeAttribute('readonly');
-    }
-}
-
-const showCities = (cities) => {
-    search.innerHTML = '';
-    cities.map(city => search.innerHTML += `<div class="search_item">
-    <img src="svg/location.svg"/>
-    <span>${city}</span>
-    </div>`)
-}
-
 document.addEventListener("DOMContentLoaded", function (event) {
+    const setValue = (e) =>{
+        input.value = e.target.innerHTML
+        form.classList.remove("isOpen");
+    }
+    const cities = [
+        'חיפה',
+        'תל אביב',
+        'ירושלים',
+        'אילת',
+        'טבריה',
+        'נתניה',
+        'עפולה'
+    ]
+    const checkWidth = () => {
+        if (document.documentElement.clientWidth < 1100) {
+            locationLabel.innerHTML = 'הקלידו מיקום, או שם וילה';
+        }
+        else {
+            locationLabel.innerHTML = 'מיקום, או מתחם';
+        }
+    }
+
+    const showCities = (cities) => {
+        search.innerHTML = ''
+        cities.map(city => search.innerHTML += `<div class="search_item">
+            <img src="svg/location.svg"/>
+            <span class="city_span">${city}</span>
+            </div>`)
+        document.querySelectorAll(".city_span").forEach(s => s.addEventListener("mousedown", setValue, false))
+    }
+    
+    let form = document.getElementById('myForm');
     let locationLabel = document.getElementById('locationLabel');
     let input = document.getElementById('location');
-    let inputSearch = document.getElementById('locationSearch');
     let search = document.getElementById('search');
-    let sidebar = document.getElementById('sidebar');
     let exit = document.getElementById('exit');
 
-    checkWidth(locationLabel, input);
+    checkWidth();
     window.addEventListener('resize', event => {
-        checkWidth(locationLabel, input);
+        checkWidth();
     }, true);
 
     input.addEventListener('focus', (event) => {
-        
-        sidebar.classList.add("show");
-        showCities(cities);
-        inputSearch.focus();
+        form.classList.add("isOpen");
+        if (input.value) {
+            const cityStartsWith = cities.filter((city) => city.startsWith(event.target.value));
+            showCities(cityStartsWith);
+        }
+        else
+            showCities(cities);
     });
 
     input.addEventListener('input', (event) => {
@@ -54,19 +58,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     input.addEventListener('blur', (event) => {
         if (document.documentElement.clientWidth >= 1100) {
-            sidebar.classList.remove("show");
+            form.classList.remove("isOpen");
             search.innerHTML = '';
         }
     });
 
-    inputSearch.addEventListener('input', (event) => {
-        const cityStartsWith = cities.filter((city) => city.startsWith(event.target.value));
-        showCities(cityStartsWith);
-    });
-
     exit.addEventListener('click', (event) => {
-        inputSearch.value = '';
-        sidebar.classList.remove("show");
-        search.innerHTML = '';
+        form.classList.remove("isOpen");
     });
 });
